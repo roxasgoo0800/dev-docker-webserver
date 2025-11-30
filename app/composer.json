@@ -1,0 +1,13 @@
+{
+    "name": "example/plain-php-app",
+    "description": "A simple PHP app with Composer and NPM dependencies.",
+    "require": {
+        "php": ">=8.0",
+        "nesbot/carbon": "^2.72"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}

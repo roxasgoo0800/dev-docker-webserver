@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  webserver:
+    image: webserver:latest # Memberi nama pada image yang di-build
+    container_name: webserver
+    ports:
+      - "8080:80"
+    # Volume untuk kode aplikasi dihapus karena kode sudah ada di dalam image
+    restart: unless-stopped
+    cpus: '2.0'   # Batasi penggunaan hingga 2 core CPU
+    mem_limit: 1g # Batasi penggunaan memori hingga 1 Gigabyte
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=db_host_dummy
+      - DB_PORT=3306
+      - DB_DATABASE=laravel_db_dummy
+      - DB_USERNAME=user_dummy
+      - DB_PASSWORD=password_dummy
+      - APACHE_LOG_DIR=/var/log/apache2
